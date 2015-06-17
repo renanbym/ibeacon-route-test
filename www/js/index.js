@@ -15,23 +15,24 @@ pin[4] = "pin_4";
 
 positions['pin_1'] = {
   top: "390px",
-  left: "90px"
+  left: "98px"
 }
 
 positions['pin_2'] = {
-  left: "90px",
-  top: "690px"
+  left: "98px",
+  top: "680px"
 }
 
 positions['pin_3'] = {
-  top: "690px",
-  left: "540px"
+  top: "680px",
+  left: "545px"
 }
 
 positions['pin_4'] = {
-  top: "20px",
-  left: "540px"
+  top: "30px",
+  left: "545px"
 }
+
 
 bg['pin_1'] = {
   top: "-100px",
@@ -72,7 +73,7 @@ var app = (function() {
   function startScan() {
     // Callback success
     function onBeaconsRanged(beaconInfo) {
-      
+
       for (var i in beaconInfo.beacons) {
         var beacon = beaconInfo.beacons[i];
         var minor = beacon.minor;
@@ -100,7 +101,7 @@ var app = (function() {
 
     // Request authorization for IOS
     estimote.requestAlwaysAuthorization();
-    
+
     // Start ranging beacons.
     estimote.startRangingBeaconsInRegion({}, onBeaconsRanged, onError);
   }
@@ -135,7 +136,7 @@ function checkProximity(distance, meters, minor) {
 
 /**
  * AddPin
- * @param 
+ * @param
  */
 // Move Pin in MAP
 function addPin(minor) {

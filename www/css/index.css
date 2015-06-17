@@ -10,8 +10,8 @@ html{color:#000;background:#fff}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre
 #mapa {
 	width: 650px;
 	height: 735px;
-	background: url(../img/mapa.jpg) no-repeat center center;
-	background-size: contain;
+	background: url(../img/mapa.jpg) no-repeat top left;
+
 	position: absolute;
 }
 
@@ -19,28 +19,30 @@ html{color:#000;background:#fff}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre
 .beacon {width: 30px; height: 30px; background: url(../img/beacon.png) no-repeat center center; position: absolute; background-size: contain }
 
 .pin-1 {
-	left: 90px;
-	bottom: 330px;
+	left: 98px;
+	top: 390px;
 	background-color: #872369;
 }
 
 .pin-2 {
-	left: 90px;
-	bottom: 30px;
-	background-color: rgb(165,213,209);
-}
-
-.pin-4 {
-	right: 110px;
-	bottom: 30px;
+	left: 98px;
+top: 680px;
 	background-color: rgb(165,213,209);
 }
 
 .pin-3 {
-	right: 110px;
-	top: 40px;
+	left: 545px;
+	top: 680px;
 	background-color: #5c58a7;
 }
+
+.pin-4 {
+	left: 545px;
+	top: 30px;
+	background-color: rgb(165,213,209);
+}
+
+
 
 .im {
 	width: 47px;
@@ -50,3 +52,66 @@ html{color:#000;background:#fff}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre
 }
 
 /* Pins */
+
+
+
+.maps{
+	position:relative;
+	width:928px;
+	height:850px;
+
+	margin:0 auto;
+	display: none;
+}
+
+
+.maps img, .maps canvas{
+	position:absolute;
+	top:0;
+	left:0;
+	z-index: 1;
+
+}
+
+.maps canvas{
+	z-index: 2;
+}
+
+
+.form{
+	height: 190px;
+}
+
+.form fieldset{
+	height: 40px;
+	padding: 0px;
+}
+
+.form input{
+	border: none;
+
+	margin-left: 20px;
+	font-size: 14px;
+	color: #EFFF00;
+	text-align: left;
+	width: 50px;
+	float: left;
+	z-index: 999999;
+
+}
+
+.form input:hover{
+	border: 2px solid #000;
+}
+
+.form select{
+	width: 100px;
+	margin: 0px 5px;
+	float: left;
+}
+
+.ui-overlay-shadow{
+	box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+}
