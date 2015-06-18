@@ -1,8 +1,9 @@
 $(function(){
 
-  var beacons = '{ "rosa": { "x" : 391 ,  "y": 97 }, "verde1": { "x" : 679 ,  "y": 97 }, "roxo": { "x" : 679 ,  "y": 544 }, "verde2": { "x" : 31 ,  "y": 544 } }';
+  // var beacons = '{ "rosa": { "x" : 391 ,  "y": 97 }, "verde1": { "x" : 679 ,  "y": 97 }, "roxo": { "x" : 679 ,  "y": 544 }, "verde2": { "x" : 31 ,  "y": 544 } }';
+  var beacons = '{ "ponto1": { "x" : 550 ,  "y": 6022 }, "ponto2": { "x" : 667 ,  "y": 6277 }, "ponto3": { "x" : 1228 ,  "y": 2911 }, "ponto4": { "x" : 1723 ,  "y": 6154 } }';
   window.beacons = JSON.parse(beacons);
-
+  $( ".draggable" ).draggable();
 
     $(document).on('touchstart click mousedown', '#rotas .voltar', function(){
         $('[data-role=dialog]').dialog( "close" );
@@ -18,13 +19,15 @@ $(function(){
       var end = window.n[ window.beacons[s_end].x ][ window.beacons[s_end].y ];
 
       findRoute( start, end );
+
+      $('.maps').css({ 'top': -parseInt( parseInt(window.beacons[s_start].x) - parseInt(50) ), 'left': -parseInt( parseInt(window.beacons[s_start].y) - parseInt(50) )})
+
       $('[data-role=dialog]').dialog( "close" );
   });
 
 
-
-
   var nodes = {};
+
 
   window.p = new PathFinding();
 
@@ -32,8 +35,8 @@ $(function(){
 
     window.canvas = document.createElement('canvas');
     window.ctx = window.canvas.getContext("2d");
-    window.w = 1500;
-    window.h = 713;
+    window.w = 9000;
+    window.h = 4278;
     window.nodeSize = 3;
 
     window.canvas.width = w;
@@ -82,7 +85,7 @@ $(function(){
     }
 
     window.n = nodes;
-    console.log( nodes  );
+    // console.log( nodes  );
   });
 
 
@@ -93,7 +96,6 @@ $(function(){
 function findRoute(start, end){
 
   $(".maps canvas").remove();
-  $("#mapa canvas").remove();
 
 
   var route = window.p.Solver(start,end);
@@ -111,8 +113,8 @@ function findRoute(start, end){
     }
 
     window.ctx.lineWidth = 3;
+    window.ctx.strokeStyle = '#ff0000';
     window.ctx.stroke();
     $('.maps').append( window.canvas );
-    $('#mapa').append( window.canvas );
   }
 }
