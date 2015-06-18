@@ -1,113 +1,61 @@
 /*Reset*/
-html{color:#000;background:#fff}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;font-size:100%}legend{color:#000}
+html{color:#000;background:#fff}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}
+table{border-collapse:collapse;border-spacing:0}
+fieldset,img{border:0}
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}
+ol,ul{list-style:none}
+caption,th{text-align:left}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}
+q:before,q:after{content:''}
+abbr,acronym{border:0;font-variant:normal}
+sup{vertical-align:text-top}
+sub{vertical-align:text-bottom}
+input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;font-size:100%}
+legend{color:#000}
 
 #container {
 	width: 100%;
-	height: 100%;
+	height: 98%;
+	min-height: 98% !important;
 	position: relative;
+	overflow: hidden;
+	zoom: 0.2;
 }
 
-#mapa {
-	width: 650px;
-	height: 735px;
-	background: url(../img/mapa.jpg) no-repeat top left;
-
-	position: absolute;
-}
-
-/* Beacons */
-.beacon {width: 30px; height: 30px; background: url(../img/beacon.png) no-repeat center center; position: absolute; background-size: contain }
-
-.pin-1 {
-	left: 98px;
-	top: 390px;
-	background-color: #872369;
-}
-
-.pin-2 {
-	left: 98px;
-top: 680px;
-	background-color: rgb(165,213,209);
-}
-
-.pin-3 {
-	left: 545px;
-	top: 680px;
-	background-color: #5c58a7;
-}
-
-.pin-4 {
-	left: 545px;
-	top: 30px;
-	background-color: rgb(165,213,209);
-}
-
-
-
-.im {
-	width: 47px;
-	height: 51px;
-	position: absolute;
-	background: url(../img/panda.png) no-repeat center center;
+.hide{
+	display: none !important;
 }
 
 /* Pins */
 
-
-
-.maps{
+.maps, #mapa{
 	position:relative;
-	width:928px;
-	height:850px;
+	width: 8192px;
+	height: 2535px;
+	background: url(../img/senai_mapa.png) no-repeat top left;
+	top: 0px;
+	left: 0px;
+}
 
-	margin:0 auto;
-	display: none;
+#map{
+	opacity: 0;
 }
 
 
-.maps img, .maps canvas{
+.maps img, .maps canvas, #mapa canvas{
 	position:absolute;
 	top:0;
 	left:0;
 	z-index: 1;
 
+	transition: all 1s;
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
 }
 
-.maps canvas{
+.maps canvas, #mapa canvas{
 	z-index: 2;
-}
-
-
-.form{
-	height: 190px;
-}
-
-.form fieldset{
-	height: 40px;
-	padding: 0px;
-}
-
-.form input{
-	border: none;
-
-	margin-left: 20px;
-	font-size: 14px;
-	color: #EFFF00;
-	text-align: left;
-	width: 50px;
-	float: left;
-	z-index: 999999;
-
-}
-
-.form input:hover{
-	border: 2px solid #000;
-}
-
-.form select{
-	width: 100px;
-	margin: 0px 5px;
-	float: left;
 }
 
 .ui-overlay-shadow{
