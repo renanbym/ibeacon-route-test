@@ -3,7 +3,7 @@ $(function(){
   // var beacons = '{ "rosa": { "x" : 391 ,  "y": 97 }, "verde1": { "x" : 679 ,  "y": 97 }, "roxo": { "x" : 679 ,  "y": 544 }, "verde2": { "x" : 31 ,  "y": 544 } }';
   var beacons = '{ "ponto1": { "x" : 550 ,  "y": 6022 }, "ponto2": { "x" : 667 ,  "y": 6277 }, "ponto3": { "x" : 1228 ,  "y": 2911 }, "ponto4": { "x" : 1723 ,  "y": 6154 } }';
   window.beacons = JSON.parse(beacons);
-  $( ".draggable" ).draggable();
+  $( ".draggable" ).draggable({ grid: [ 500, 500 ] });
 
     $(document).on('touchstart click mousedown', '#rotas .voltar', function(){
         $('[data-role=dialog]').dialog( "close" );
@@ -14,15 +14,22 @@ $(function(){
 
       var s_start = $('#rota_start').val();
       var s_end = $('#rota_end').val();
-
+     console.log( s_start);
       var start = window.n[ window.beacons[s_start].x ][ window.beacons[s_start].y ];
       var end = window.n[ window.beacons[s_end].x ][ window.beacons[s_end].y ];
 
-      findRoute( start, end );
+      if( start && end ){
+          findRoute( start, end );
 
-      $('.maps').css({ 'top': -parseInt( parseInt(window.beacons[s_start].x) - parseInt(50) ), 'left': -parseInt( parseInt(window.beacons[s_start].y) - parseInt(50) )})
+          $('.maps').css({ 'top': -parseInt( parseInt(window.beacons[s_start].x) - parseInt(50) ), 'left': -parseInt( parseInt(window.beacons[s_start].y) - parseInt(50) )});
+          $('[data-role=dialog]').dialog( "close" );
+      }else{
 
-      $('[data-role=dialog]').dialog( "close" );
+           $('[data-role=dialog]').dialog( "close" );
+            console.log( 'erro na rota ');
+      }
+
+
   });
 
 
@@ -85,7 +92,6 @@ $(function(){
     }
 
     window.n = nodes;
-    // console.log( nodes  );
   });
 
 

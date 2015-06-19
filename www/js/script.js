@@ -3,7 +3,7 @@ $(function(){
   // var beacons = '{ "rosa": { "x" : 391 ,  "y": 97 }, "verde1": { "x" : 679 ,  "y": 97 }, "roxo": { "x" : 679 ,  "y": 544 }, "verde2": { "x" : 31 ,  "y": 544 } }';
   var beacons = '{ "ponto1": { "x" : 550 ,  "y": 6022 }, "ponto2": { "x" : 667 ,  "y": 6277 }, "ponto3": { "x" : 1228 ,  "y": 2911 }, "ponto4": { "x" : 1723 ,  "y": 6154 } }';
   window.beacons = JSON.parse(beacons);
-  $( ".draggable" ).draggable();
+  $( ".draggable" ).draggable({ grid: [ 500, 500 ] });
 
     $(document).on('touchstart click mousedown', '#rotas .voltar', function(){
         $('[data-role=dialog]').dialog( "close" );
@@ -85,7 +85,7 @@ $(function(){
     }
 
     window.n = nodes;
-    // console.log( nodes  );
+    console.log( nodes  );
   });
 
 
